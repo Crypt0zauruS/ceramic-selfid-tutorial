@@ -7,7 +7,7 @@ import { EthereumAuthProvider } from "@self.id/web";
 import { useViewerRecord } from "@self.id/react";
 
 export default function Home() {
-  const web3ModalRef = useRef(null) as any;
+  const web3ModalRef = useRef();
   const [connection, connect, disconnect] = useViewerConnection();
 
   const getProvider = async () => {
@@ -94,7 +94,7 @@ function RecordSetter() {
   const record = useViewerRecord("basicProfile");
   const [name, setName] = useState("");
 
-  const updateRecordName = async (name: any) => {
+  const updateRecordName = async (name) => {
     await record.merge({
       name: name,
     });
